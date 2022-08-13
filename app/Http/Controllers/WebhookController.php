@@ -22,7 +22,7 @@ class WebhookController extends Controller
             $order = new Order();
 
             $order->shopifyOrderId = $json['id'];
-            $order->shoipifyOrderObject = $data;
+            $order->shoipifyOrderObject = json_encode(json_decode($data, TRUE));
             $order->result = "-";
             $order->attempts = 0;
             $order->lastTry = Carbon::now()->timestamp;
