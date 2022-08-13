@@ -14,13 +14,14 @@ class WebhookController extends Controller
 
         $hmac_header = $_SERVER['HTTP_X_SHOPIFY_HMAC_SHA256'];
         $data = file_get_contents('php://input');
+        $json = json_decode($data, TRUE);
         $verified = $this->verify_webhook($data, $hmac_header);
         
         if($verified){
 
             $order = new Order();
 
-            $order->shopifyOrderId = $data['id'];
+            $order->shopifyOrderId = $json['id'];
             $order->shoipifyOrderObject = $data;
             $order->result = "-";
             $order->attempts = 0;
