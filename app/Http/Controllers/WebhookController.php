@@ -15,7 +15,7 @@ class WebhookController extends Controller
         $verified = $this->verify_webhook($data, $hmac_header);
         
         if($verified){
-            Log::info($data);
+            Log::info(json_encode($data));
         }
 
     }
