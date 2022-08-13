@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Models\Order;
+use Carbon\Carbon;
 
 class WebhookController extends Controller
 {
@@ -15,10 +17,24 @@ class WebhookController extends Controller
         $verified = $this->verify_webhook($data, $hmac_header);
         
         if($verified){
-            Log::info(json_encode($data));
+
+            $order = new Order();
+
+            $order->shopifyOrderId = $data['id'];
+            $order->shoipifyOrderObject = $data;
+            $order->result = "-";
+            $order->attempts = 0;
+            $order->timestamp = Carbon::now()->timestamp;
+
+            $order->save();
         }
 
     }
+
+
+
+
+
 
 
 

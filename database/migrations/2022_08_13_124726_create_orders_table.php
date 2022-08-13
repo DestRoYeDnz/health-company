@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('shopifyOrderId');
             $table->json('shoipifyOrderObject');
-            $table->json('result');
+            $table->string('result');
             $table->unsignedBigInteger('attempts');
             $table->timestamp('lastTry');
             $table->timestamps();
