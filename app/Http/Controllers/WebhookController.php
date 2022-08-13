@@ -26,7 +26,7 @@ class WebhookController extends Controller
             $order->attempts = 0;
             $order->timestamp = Carbon::now()->timestamp;
 
-            $order->save();
+            Log::info($order->save());
         }
 
     }
