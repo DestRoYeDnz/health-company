@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('shopifyOrderId');
-            $table->json('shoipifyOrderObject');
+            $table->text('shoipifyOrderObject');
             $table->string('result');
             $table->unsignedBigInteger('attempts');
             $table->timestamp('lastTry');
