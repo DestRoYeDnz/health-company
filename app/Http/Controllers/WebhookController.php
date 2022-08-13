@@ -25,7 +25,7 @@ class WebhookController extends Controller
             $order->shoipifyOrderObject = $data;
             $order->result = "-";
             $order->attempts = 0;
-            $order->timestamp = Carbon::now()->timestamp;
+            $order->lastTry = Carbon::now()->timestamp;
 
             Log::info($order->save());
         }
