@@ -64,7 +64,7 @@ const submit = () => {
                 />
             </div>
 
-            <div class="mt-4">
+            <div class="mt-2">
                 <JetLabel for="email" value="Email" />
                 <JetInput
                     id="email"
@@ -75,7 +75,7 @@ const submit = () => {
                 />
             </div>
 
-            <div class="mt-4">
+            <div class="mt-2">
                 <JetLabel for="authCode" value="Auth Code" />
                 <JetInput
                     id="authCode"
@@ -86,7 +86,7 @@ const submit = () => {
                 />
             </div>
 
-            <div class="mt-4">
+            <div class="mt-2">
                 <JetLabel for="customerType" value="Customer Type" />
                 <JetInput
                     id="customerType"
@@ -98,7 +98,7 @@ const submit = () => {
                 />
             </div>
 
-            <div class="mt-4">
+            <div class="mt-2">
                 <JetLabel for="password" value="Password" />
                 <JetInput
                     id="password"
@@ -110,7 +110,7 @@ const submit = () => {
                 />
             </div>
 
-            <div class="mt-4">
+            <div class="mt-2">
                 <JetLabel for="password_confirmation" value="Confirm Password" />
                 <JetInput
                     id="password_confirmation"
@@ -122,7 +122,7 @@ const submit = () => {
                 />
             </div>
 
-            <div v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature" class="mt-4">
+            <div v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature" class="mt-2">
                 <JetLabel for="terms">
                     <div class="flex items-center">
                         <JetCheckbox id="terms" v-model:checked="form.terms" name="terms" />
@@ -134,7 +134,7 @@ const submit = () => {
                 </JetLabel>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-end mt-2">
                 <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
                     Already registered?
                 </Link>

@@ -3,6 +3,9 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\NewHcpUserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +37,7 @@ Route::get('/register/hcp', function () {
 });
 
 
-
+Route::post('/register/hcp', [NewHcpUserController::class, 'newHcpUser']);
 
 
 Route::middleware([
@@ -42,7 +45,16 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::get('admin', [AdminController::class, 'show']);
+    Route::get('admin/users', [AdminController::class, 'allUsers'])->name('admin.users');
+    Route::get('admin/orders/webhook', [AdminController::class, 'allWebhookOrders']);
+
+    Route::post('user', [UserController::class, 'update']);
+
+
 });
