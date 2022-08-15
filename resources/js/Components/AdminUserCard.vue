@@ -8,14 +8,16 @@
         <th align="left">Customer Status</th>
       </tr>
     </thead>
+    </table>
+      <table class="table-auto w-full">
     <tbody>
       <tr>
-        <td class="align-top">
+        <td align="left" class="align-top">
           {{ props.user.firstName }} {{ props.user.lastName }}
         </td>
-        <td class="align-top">{{ props.user.email }}</td>
-        <td class="align-top">{{ props.user.customerType }}</td>
-        <td class="align-top">{{ props.user.hcpStatus }}</td>
+        <td align="left" class="align-top">{{ props.user.email }}</td>
+        <td align="left" class="align-top">{{ props.user.customerType }}</td>
+        <td align="left" class="align-top">{{ props.user.hcpStatus }}</td>
         <td>
           <div
             class="
@@ -95,14 +97,11 @@
               </div>
             </div>
           </div>
-
-
-          
         </td>
       </tr>
     </tbody>
   </table>
-  <br /><br />
+<div class='w-full h-1 bg-gray-200'>-</div>
 </template>
 
 <script setup>
@@ -110,7 +109,10 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 
 function submit() {
-  Inertia.post("/user", form);
+  Inertia.post("/user", form),{
+  preserveScroll: true,
+  onSuccess: () => console.log("YES")
+  };
 }
 
 const props = defineProps(["user"]);

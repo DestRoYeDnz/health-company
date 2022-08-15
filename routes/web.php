@@ -50,11 +50,12 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::get('admin', [AdminController::class, 'show']);
-    Route::get('admin/users', [AdminController::class, 'allUsers'])->name('admin.users');
-    Route::get('admin/orders/webhook', [AdminController::class, 'allWebhookOrders']);
+    Route::group(['middleware' => ['admin']], function () {
 
+        Route::get('admin', [AdminController::class, 'show']);
+        Route::get('admin/users', [AdminController::class, 'allUsers'])->name('admin.users');
+        Route::get('admin/orders/webhook', [AdminController::class, 'allWebhookOrders']);
+    });
+    
     Route::post('user', [UserController::class, 'update']);
-
-
 });

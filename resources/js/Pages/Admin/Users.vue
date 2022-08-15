@@ -32,10 +32,12 @@ const props = defineProps(['users'])
             "
           >
           <UserCard v-for="user in props.users" :key="user.id" :user='user' />
+          
           </div>
           
         </div>
       </div>
+      
     </div>
 
 
