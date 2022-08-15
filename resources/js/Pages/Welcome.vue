@@ -26,6 +26,9 @@ defineProps({
                 <Link v-if="canRegister" :href="route('register')" class="ml-4 text-sm text-gray-700 underline">
                     Register
                 </Link>
+                                <Link v-if="canRegister" href="/register/hcp" class="ml-4 text-sm text-gray-700 underline">
+                    Register Professional
+                </Link>
             </template>
         </div>
 

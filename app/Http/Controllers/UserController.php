@@ -16,9 +16,9 @@ class UserController extends Controller
     {
         //return json_decode($request->getContent(), true);
 
-        if (request()->isDirty) {
+        if (request()->newValue !== request()->oldValue ) {
 
-            if (request()->newValue == 'Active') {
+            if (request()->newValue === 'Active') {
                 $user = User::where("id", request()->userId)->get();
 
                 $output =  User::where('id', request()->userId)
@@ -29,7 +29,7 @@ class UserController extends Controller
                 $message = "Status Updated";
 
 
-                if (request()->action == 'Yes') {
+                if (request()->action === 'Yes') {
                     Mail::to($user)->send(new hcpStatusActive);
                     $mesage = "Status Updated - Email Sent";
                 }
@@ -72,6 +72,41 @@ class UserController extends Controller
                     'message' => $message
                 ]);
             }
+
+
+
+
+            if (request()->newValue == 'Rejected') {
+                $user = User::where("id", request()->userId)->get();
+
+                $output =  User::where('id', request()->userId)
+                    ->update(
+                        ['hcpStatus' => request()->newValue]
+                    );
+
+                $message = "Status Updated";
+
+                return  Redirect::route('admin.users')->with('message', $message);
+            }
+
+
+
+
+            if (request()->newValue == 'Pending') {
+                $user = User::where("id", request()->userId)->get();
+
+                $output =  User::where('id', request()->userId)
+                    ->update(
+                        ['hcpStatus' => request()->newValue]
+                    );
+
+                $message = "Status Updated";
+                return  Redirect::route('admin.users')->with('message', $message);
+            }
+
+
+            return  Redirect::route('admin.users');
         }
+        return  Redirect::route('admin.users');
     }
 }

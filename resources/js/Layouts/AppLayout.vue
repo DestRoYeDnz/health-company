@@ -163,6 +163,11 @@ const logout = () => {
                                             API Tokens
                                         </JetDropdownLink>
 
+
+                                          <JetDropdownLink v-if="$page.props.user.isAdmin" href="/admin">
+                                            Admin
+                                        </JetDropdownLink>
+
                                         <div class="border-t border-gray-100" />
 
                                         <!-- Authentication -->

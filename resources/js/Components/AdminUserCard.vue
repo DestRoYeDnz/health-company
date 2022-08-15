@@ -2,23 +2,32 @@
   <table class="table-auto w-full">
     <thead>
       <tr>
-        <th align="left">Name</th>
-        <th align="left">Email</th>
-        <th align="left">Customer Type</th>
-        <th align="left">Customer Status</th>
+        <th width="25%" align="left">Name</th>
+        <th width="20%" align="left">Email</th>
+        <th width="15%" align="left">Customer Type</th>
+        <th width="20%" align="left">Professional Status</th>
+        <th width="20%" align="left">Actions</th>
       </tr>
     </thead>
     </table>
       <table class="table-auto w-full">
     <tbody>
       <tr>
-        <td align="left" class="align-top">
+        <td  width="25%"  align="left" class="align-top">
           {{ props.user.firstName }} {{ props.user.lastName }}
+
+            {{ props.user.hcpAddress }}<br>
+            {{ props.user.hcpCity }}<br>
+            {{ props.user.hcpState }}<br>
+            {{ props.user.hcpCountry }}, {{hcpPostcode}}<br>
         </td>
-        <td align="left" class="align-top">{{ props.user.email }}</td>
-        <td align="left" class="align-top">{{ props.user.customerType }}</td>
-        <td align="left" class="align-top">{{ props.user.hcpStatus }}</td>
-        <td>
+        <td width="20%" align="left" class="align-top">
+            {{ props.user.email }}
+
+        </td>
+        <td width="15%" align="left" class="align-top">{{ props.user.customerType }}</td>
+        <td width="20%" align="left" class="align-top">{{ props.user.hcpStatus }}</td>
+        <td width="20%">
           <div
             class="
               align-top

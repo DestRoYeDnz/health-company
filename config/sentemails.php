@@ -17,5 +17,5 @@ return [
 
     // body emails are stored as compressed strings to save db disk
     /* Do not change after first mail is stored */
-    'compressBody' => true,
+    'compressBody' => false,
 ];
